@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Extensions.Spans.Readonly.Types.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Extensions.Spans.Readonly.Types\Soenneker.Extensions.Spans.Readonly.Types.csproj" />
     </ItemGroup>
 
     <ItemGroup>
