@@ -40,5 +40,11 @@ jobs:
       - name: Test
         run: dotnet test test/Soenneker.Extensions.Spans.Readonly.Types.Tests/Soenneker.Extensions.Spans.Readonly.Types.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
 
+      - name: Restore library
+        run: dotnet restore src/Soenneker.Extensions.Spans.Readonly.Types/Soenneker.Extensions.Spans.Readonly.Types.csproj --verbosity minimal
+
+      - name: Build library
+        run: dotnet build src/Soenneker.Extensions.Spans.Readonly.Types/Soenneker.Extensions.Spans.Readonly.Types.csproj --configuration Release --no-restore --verbosity minimal
+
       - name: Pack
         run: dotnet pack src/Soenneker.Extensions.Spans.Readonly.Types/Soenneker.Extensions.Spans.Readonly.Types.csproj --configuration Release --no-build --no-restore --output . --verbosity minimal
