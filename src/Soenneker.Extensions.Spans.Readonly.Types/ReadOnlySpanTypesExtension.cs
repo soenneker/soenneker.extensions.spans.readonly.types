@@ -11,6 +11,7 @@ public static class ReadOnlySpanTypesExtension
     /// <summary>
     /// Computes a hash code that uniquely represents the sequence and identity of the specified span of types.
     /// </summary>
+    /// <returns>Computes a hash code that uniquely represents the sequence and identity of the specified span of types.</returns>
     [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int ToHashKey(this System.ReadOnlySpan<System.Type> types)
