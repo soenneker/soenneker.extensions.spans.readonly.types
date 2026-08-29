@@ -4,7 +4,7 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.extensions.spans.readonly.types/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.extensions.spans.readonly.types/actions/workflows/codeql.yml)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Extensions.Spans.Readonly.Types
-Helpful extension methods surrounding ReadOnlySpan of Type.
+Builds a fast, order-sensitive hash key for a span of runtime `Type` objects.
 
 ## Installation
 
@@ -12,15 +12,15 @@ Helpful extension methods surrounding ReadOnlySpan of Type.
 dotnet add package Soenneker.Extensions.Spans.Readonly.Types
 ```
 
-## Quick start
+## Usage
 
 ```csharp
 using Soenneker.Extensions.Spans.Readonly.Types;
 
-// Given an existing System.ReadOnlySpan<System.Type> named types:
-var result = types.ToHashKey();
+ReadOnlySpan<Type> signature = [typeof(string), typeof(int)];
+int key = signature.ToHashKey();
 ```
 
-## Common operations
+The same type objects in the same order produce the same key within a process; changing the order changes the hash. An empty span returns `0`.
 
-- `ToHashKey()` - Computes a hash code that uniquely represents the sequence and identity of the specified span of types.
+The hash uses runtime object identity. It is not stable across processes or application runs, is not cryptographic, and is not guaranteed unique—store the original type sequence alongside it if collisions must be resolved.
