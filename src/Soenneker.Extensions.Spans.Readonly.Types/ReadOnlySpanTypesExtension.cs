@@ -9,9 +9,9 @@ namespace Soenneker.Extensions.Spans.Readonly.Types;
 public static class ReadOnlySpanTypesExtension
 {
     /// <summary>
-    /// Computes a hash code that uniquely represents the sequence and identity of the specified span of types.
+    /// Computes an order-sensitive hash code from the runtime identity of each type in the span.
     /// </summary>
-    /// <returns>Computes a hash code that uniquely represents the sequence and identity of the specified span of types.</returns>
+    /// <returns>A process-local, non-cryptographic hash code. Collisions are possible.</returns>
     [Pure]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int ToHashKey(this System.ReadOnlySpan<System.Type> types)
